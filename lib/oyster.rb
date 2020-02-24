@@ -1,4 +1,4 @@
-class yster_card
+class Oyster_card
 
     MAXIMUM_BALANCE = 90
     MINIMUM_BALANCE = 0
@@ -19,6 +19,18 @@ class yster_card
       minimum_balance = MINIMUM_BALANCE
       fail "Minimum balance of #{minimum_balance} reached" if balance - amount < MINIMUM_BALANCE
       @balance -= amount
+    end
+
+    def touch_in
+
+    end
+
+    def touch_out
+
+    end
+
+    def in_journey?
+    
     end
 
 end
