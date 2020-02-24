@@ -1,4 +1,4 @@
-class Oyster_card
+class yster_card
 
     MAXIMUM_BALANCE = 90
     MINIMUM_BALANCE = 0
@@ -17,5 +17,8 @@ class Oyster_card
 
     def deduct(amount)
       minimum_balance = MINIMUM_BALANCE
-      
+      fail "Minimum balance of #{minimum_balance} reached" if balance - amount < MINIMUM_BALANCE
+      @balance -= amount
+    end
+
 end

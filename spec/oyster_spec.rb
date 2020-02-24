@@ -9,7 +9,7 @@ describe Oyster_card do
       it { is_expected.to respond_to(:top_up).with(1).argument }
     end
     describe "#deduct" do
-      it { is_expected.to respond_to(:dedcut).with(1).argument }
+      it { is_expected.to respond_to(:deduct).with(1).argument }
     end
 
     it "can top up the balance" do
@@ -21,5 +21,11 @@ describe Oyster_card do
       maximum_balance = Oyster_card::MAXIMUM_BALANCE
       subject.top_up(maximum_balance)
       expect { subject.top_up 1 }.to raise_error "Maximum balance of #{maximum_balance} exceeded"
+    end
+
+    it "raises and error when deduction reaches limit" do
+      minimum_balance = Oyster_card::MINIMUM_BALANCE
+      subject.deduct(minimum_balance)
+      expect { subject.deduct 1 }.to raise_error "Minimum balance of #{minimum_balance} reached"
     end
 end
